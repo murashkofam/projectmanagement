@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros">
+	<VBox>
+		<Image src="{imageUrl}" width="25%"/>
+		<Text text="" />
+	  	<Label text="{startDate} - {endDate}"/>
+		<Text text="" />
+		<Button core:require="{ handler: 'projectmanagement/ext/fragment/CustomSection'}" text="Show project duration" press="handler.onPress(${startDate}, ${endDate})" />
+	</VBox>
+</core:FragmentDefinition>

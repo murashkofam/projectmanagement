@@ -1,0 +1,199 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "projectmanagement",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:lrop",
+            "version": "1.10.6",
+            "toolsId": "7cc029e8-9e11-43de-9401-8785c2a0a79d"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/odata/v4/project-management/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "4.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.117.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.fe.templates": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "projectmanagement.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "resources": {
+            "css": []
+        },
+        "routing": {
+            "routes": [
+                {
+                    "pattern": ":?query:",
+                    "name": "ProjectsList",
+                    "target": "ProjectsList"
+                },
+                {
+                    "pattern": "Projects({key}):?query:",
+                    "name": "ProjectsObjectPage",
+                    "target": "ProjectsObjectPage"
+                },
+                {
+                    "pattern": "Projects({key})/tasks({key2}):?query:",
+                    "name": "TasksObjectPage",
+                    "target": "TasksObjectPage"
+                }
+            ],
+            "targets": {
+                "ProjectsList": {
+                    "type": "Component",
+                    "id": "ProjectsList",
+                    "name": "sap.fe.templates.ListReport",
+                    "options": {
+                        "settings": {
+                            "entitySet": "Projects",
+                            "variantManagement": "None",
+                            "navigation": {
+                                "Projects": {
+                                    "detail": {
+                                        "route": "ProjectsObjectPage"
+                                    }
+                                }
+                            },
+                            "initialLoad": "Enabled",
+                            "defaultTemplateAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#table1",
+                            "controlConfiguration": {
+                                "@com.sap.vocabularies.UI.v1.LineItem": {
+                                    "tableSettings": {
+                                        "enableExport": false,
+                                        "enableAutoColumnWidth": true
+                                    }
+                                }
+                            },
+                            "hideFilterBar": true
+                        }
+                    }
+                },
+                "ProjectsObjectPage": {
+                    "type": "Component",
+                    "id": "ProjectsObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "editableHeaderContent": true,
+                            "entitySet": "Projects",
+                            "navigation": {
+                                "tasks": {
+                                    "detail": {
+                                        "route": "TasksObjectPage"
+                                    }
+                                }
+                            },
+                            "sectionLayout": "Page",
+                            "content": {
+                                "body": {
+                                    "sections": {
+                                        "CustomSection": {
+                                            "template": "projectmanagement.ext.fragment.CustomSection",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "GeneratedGroup1"
+                                            },
+                                            "title": "Project duration info",
+                                            "type": "XMLFragment"
+                                        }
+                                    }
+                                }
+                            },
+                            "controlConfiguration": {
+                                "tasks/@com.sap.vocabularies.UI.v1.LineItem#Tasks": {
+                                    "tableSettings": {
+                                        "enableExport": false,
+                                        "enableFullScreen": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "TasksObjectPage": {
+                    "type": "Component",
+                    "id": "TasksObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "editableHeaderContent": true,
+                            "entitySet": "Tasks"
+                        }
+                    }
+                }
+            }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {}
+            }
+        }
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "transactional"
+    }
+}

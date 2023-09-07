@@ -1,0 +1,7 @@
+ID,title,description,status,project_ID,asignee_ID
+9df4434b-5c3f-4d18-bb22-5ac8f39efea4,UI/UX Design,"Create mockups for new website design.",IN_PROGRESS,4bfdb879-83e1-4bb0-8c8c-695ebba1d6b7,cfb93f7d-b46d-4a25-8b88-1ed924a413ef
+11c71ec2-8eac-4425-86b5-2b7540f52ed2,Frontend Development,"Implement frontend code for the new website.",IN_PROGRESS,4bfdb879-83e1-4bb0-8c8c-695ebba1d6b7,19e91f3b-b936-4456-98ef-40976c6b381d
+7f779db1-7842-456a-96d7-2e081ed24b4b,Market Research,"Conduct market research for potential customer preferences.",PLANNED,5e84d049-24f5-4c54-89cd-67198e6f36ee,20a52e1f-33d6-4215-af1f-62b20070bcf6
+40ee33dd-54f1-4d29-9a24-8b5485362b05,Marketing Strategy,"Create marketing strategy for the product launch.",IN_PROGRESS,5e84d049-24f5-4c54-89cd-67198e6f36ee,cfb93f7d-b46d-4a25-8b88-1ed924a413ef
+1f5f3a01-5759-44e3-84f7-af77773d3f84,Client Demo,"Prepare software demo for client presentation.",PLANNED,0a6b8d9a-3f91-4d1e-b9c3-67ddad03ef9f,19e91f3b-b936-4456-98ef-40976c6b381d
+5d13e788-e4b7-4c1c-9d81-9d29c5b132e3,Testing & QA,"Conduct testing and quality assurance for the mobile app.",COMPLETED,f376da9d-9ebc-4b90-9ac7-3b27b7d7c55c,20a52e1f-33d6-4215-af1f-62b20070bcf6

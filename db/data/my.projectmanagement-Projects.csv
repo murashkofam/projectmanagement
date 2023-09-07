@@ -1,0 +1,5 @@
+ID,name,description,status,startDate,endDate,imageUrl
+f376da9d-9ebc-4b90-9ac7-3b27b7d7c55c,PR1,"Mobile App Development.",COMPLETED,2023-06-20,2023-08-05,/media/pr1.png
+4bfdb879-83e1-4bb0-8c8c-695ebba1d6b7,PR2,"Redesign company website for better user experience.",IN_PROGRESS,2023-08-01,2023-10-15,/media/pr2.png
+5e84d049-24f5-4c54-89cd-67198e6f36ee,PR3,"Plan and execute the launch of new product line.",PLANNED,2023-09-15,2023-11-30,/media/pr3.png
+0a6b8d9a-3f91-4d1e-b9c3-67ddad03ef9f,PR4,"Onboard new client for software implementation.",IN_PROGRESS,2023-05-10,2023-09-30,/media/pr4.png
