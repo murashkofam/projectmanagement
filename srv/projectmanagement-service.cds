@@ -8,7 +8,7 @@ service ProjectManagementService {
         @(
         cds.odata.bindingparameter.name : '_it',
         Common.SideEffects              : {
-            TargetProperties : ['_it/status', '_it/criticality']
+            TargetProperties : ['_it/status_code', '_it/status/criticality']
         }
     )
         action complete();

@@ -1,17 +1,16 @@
 namespace my.projectmanagement;
 
-using { cuid } from '@sap/cds/common';
+using { cuid, sap.common.CodeList } from '@sap/cds/common';
 
 
 entity Projects: cuid {
     name: String;
     description: String;
-    status: Status;
+    status: Association to one Status;
     startDate: Date;
     endDate: Date;
     tasks: Association to many Tasks on tasks.project = $self;
     @UI.IsImageURL imageUrl: String;
-    criticality: Integer;
     statusColor: String;
 }
 
@@ -24,14 +23,18 @@ entity Users: cuid {
 entity Tasks: cuid {
     title: String;
     description: String;
-    status: Status;
+    status: Association to one Status;
     project: Association to one Projects;
     asignee: Association to one Users;
-    criticality: Integer;
 }
 
-type Status : String enum {
-    PLANNED; 
-    IN_PROGRESS; 
-    COMPLETED;
+@readonly
+entity Status : CodeList {
+    key code : String enum {
+        PLANNED; 
+        IN_PROGRESS; 
+        COMPLETED;
+    };
+    criticality: Integer;
+    
 }

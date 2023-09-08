@@ -1,0 +1,4 @@
+code,name,criticality
+PLANNED,'Planned',5
+IN_PROGRESS,'In Progress',2
+COMPLETED,'Completed',3

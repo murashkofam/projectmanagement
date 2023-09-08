@@ -22,8 +22,8 @@ annotate service.Projects with @(
                 {
             $Type : 'UI.DataField',
             Label : 'Status',
-            Value : status,
-            Criticality : criticality,
+            Value : status_code,
+            Criticality : status.criticality,
             CriticalityRepresentation : #WithoutIcon,
             ![@UI.Importance] : #High,
         },
@@ -69,8 +69,8 @@ annotate service.Projects with @(
             {
                 $Type : 'UI.DataField',
                 Label : 'Status',
-                Value : status,
-                Criticality : criticality,
+                Value : status_code,
+                Criticality : status.criticality,
                 CriticalityRepresentation : #WithoutIcon,
             },
             {
@@ -110,7 +110,7 @@ annotate service.Projects with @(
         TypeNamePlural : 'Projects',
         Description : {
             $Type : 'UI.DataField',
-            Value : status,
+            Value : status_code,
         },
     }
 );
@@ -125,8 +125,8 @@ annotate service.Projects with {
             Parameters : [
                 {
                     $Type : 'Common.ValueListParameterInOut',
-                    LocalDataProperty : status,
-                    ValueListProperty : 'status',
+                    LocalDataProperty : status_code,
+                    ValueListProperty : 'status_code',
                 },
             ],
             Label : 'Project Status',
@@ -142,9 +142,9 @@ annotate service.Tasks with @(
             ![@UI.Importance] : #High,
         },{
             $Type : 'UI.DataField',
-            Value : status,
+            Value : status_code,
             Label : 'Status',
-            Criticality : criticality,
+            Criticality : status.criticality,
             CriticalityRepresentation : #WithoutIcon,
             ![@UI.Importance] : #High,
         },{
@@ -175,8 +175,8 @@ annotate service.Tasks with @(
             {
                 $Type : 'UI.DataField',
                 Label : 'Status',
-                Value : status,
-                Criticality : criticality,
+                Value : status_code,
+                Criticality : status.criticality,
                 CriticalityRepresentation : #WithoutIcon,
             },
             {
@@ -227,7 +227,7 @@ annotate service.Tasks with @(
             Label : 'Title',
         },{
             $Type : 'UI.DataField',
-            Value : status,
+            Value : status_code,
             Label : 'Status',
         },{
             $Type : 'UI.DataField',
@@ -281,7 +281,7 @@ annotate service.Projects with @(
 );
 annotate service.Projects with @(
     UI.SelectionFields : [
-        status,
+        status_code,
         tasksCount,
     ]
 );

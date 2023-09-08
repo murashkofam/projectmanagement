@@ -11,52 +11,23 @@ class ProjectManagementService extends cds.ApplicationService {
             .where({
                 ID: project.ID
             }).with({
-                status: 'COMPLETED'
+                status_code: 'COMPLETED'
             });
             return UPDATE(Tasks)
                 .where({
                     project_ID: project.ID
                 }).with({
-                    status: 'COMPLETED' 
+                    status_code: 'COMPLETED' 
                 })
 
         })
 
         this.before('CREATE', Projects, req => {
             const project = req.data;
-            if (project.status === 'COMPLETED') {
+            if (project.status_code === 'COMPLETED') {
                 req.reject(403, 'Creating project in status Completed is not allowed!');
             }
         })
-
-        this.after('READ', [Projects, Tasks], entities => {
-            if (Array.isArray(entities)) {
-                entities.forEach(entity => {
-                  setCriticality(entity);
-                });
-              } else {
-                setCriticality(entities);
-              }
-        })
-
-        function setCriticality(entity) {
-            switch(entity.status) {
-                case 'PLANNED':
-                    entity.criticality = 5;
-                    break;
-                case 'IN_PROGRESS':
-                    entity.criticality = 2;
-                    break;
-                case 'COMPLETED':
-                    entity.criticality = 3;
-                    break;
-                default:
-                    entity.criticality = 2;
-                    break;
-            }
-        }
-
-
 
         super.init()
     }
